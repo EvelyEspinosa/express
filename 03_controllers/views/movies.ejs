@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+</head>
+    <body>
+        <h1>Películas</h1>
+        <p>Estás en la página de peliculas.</p>
+
+        <%- include('./partials/menu') %>
+
+        <h2>Lista de Películas</h2>
+        <ul>
+            <% for(let i=0; i<listaPelis.length ; i++){ %>
+            <li> <%= listaPelis[i].title %>
+            <form action="/movie/delete" method="POST">
+                <input type="hidden" name="id" value="<%= listaPelis[i].id %>">
+                <button type="submit">Borrar</button>
+            </form>
+            </li>
+            <% } %>
+        </ul>
+    </body>
+</html>
